@@ -1,9 +1,9 @@
 title=LTheater
 subtitle=Theater for playing movies from a local network server.
-mm_icon_focus_hd=pkg:/images/not_here.png
-mm_icon_side_hd=pkg:/images/not_here.png
-mm_icon_focus_sd=pkg:/images/not_here.png
-mm_icon_side_sd=pkg:/images/not_here.png
+mm_icon_focus_hd=pkg:/images/LTheater-large.png
+mm_icon_side_hd=pkg:/images/LTheater-large.png
+mm_icon_focus_sd=pkg:/images/LTheater-large.png
+mm_icon_side_sd=pkg:/images/LTheater-large.png
 major_version=1
 minor_version=0
 build_version=00000

@@ -1,22 +1,28 @@
-sub main()
-    canvas = CreateObject("roImageCanvas")
-    canvas.setLayer(0, { color: "#884400" })
-    newShapeLocation = { x: 100, y: 200, w: 200, h: 100 }
-    canvas.setLayer(10, { color: "#00BB00", targetRect: newShapeLocation })
-    newTextAttributes = {
-        color: "#0000CC"
-        font: "Large"
-        Halign: "Hcenter"
-        Valign: "Vcenter"
-    }
-    canvas.setLayer(5, {
-        text: "Hello World!",
-        textAttrs: newTextAttributes,
-        targetRect: {
-            x: 200, y: 500, w: 500, h: 100
-        }
-    })
-    canvas.show()
-    
-    sleep(5000)
+sub Main()
+  ' create our screen
+  screen = CreateObject("roPosterScreen") 
+
+  ' setup a message port so we can receive event information
+  port = CreateObject("roMessagePort")
+  screen.SetMessagePort(port)
+
+  ' change the screen's message text
+  screen.ShowMessage("Welcome to LTheater. Nothing works yet!")
+  screen.Show()
+
+  ' start our event loop
+  while true
+    msg = Wait(0, port) ' wait for an event
+
+    if type(msg) = "roPosterScreenEvent"
+      ' we got a poster screen event
+      if msg.isScreenClosed()
+        ' the user closed the screen
+        exit while
+      end if
+    end if
+  end while
+
+  screen.Close()
+  ' any time all screens in a channel are closed, the channel will exit
 end sub
