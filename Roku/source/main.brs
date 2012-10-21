@@ -1,3 +1,4 @@
+' This function is the core/main that creates the screen
 Function Main() as void
     m.menuFunctions = [
         CreateMenu,
@@ -20,148 +21,7 @@ Function Main() as void
     end while
 End Function
 
-
-Function InitTheme() as void
-    app = CreateObject("roAppManager")
-    
-    listItemHighlight           = "#FFFFFF"
-    listItemText                = "#707070"
-    brandingGreen               = "#37491D"
-    backgroundColor             = "#e0e0e0"
-    theme = {
-        BackgroundColor: backgroundColor
-        OverhangSliceHD: "pkg:/images/Overhang_Slice_HD.png"
-        OverhangSliceSD: "pkg:/images/Overhang_Slice_HD.png"
-        OverhangLogoHD: "pkg:/images/channel_logo.png"
-        OverhangLogoSD: "pkg:/images/channel_logo.png"
-        OverhangOffsetSD_X: "25"
-        OverhangOffsetSD_Y: "15"
-        OverhangOffsetHD_X: "25"
-        OverhangOffsetHD_Y: "15"
-        BreadcrumbTextLeft: brandingGreen
-        BreadcrumbTextRight: "#E1DFE0"
-        BreadcrumbDelimiter: brandingGreen
-        
-        ListItemText: listItemText
-        ListItemHighlightText: listItemHighlight
-        ListScreenDescriptionText: listItemText
-        ListItemHighlightHD: "pkg:/images/select_bkgnd.png"
-        ListItemHighlightSD: "pkg:/images/select_bkgnd.png"
-        CounterTextLeft: brandingGreen
-        CounterSeparator: brandingGreen
-        GridScreenBackgroundColor: backgroundColor
-        GridScreenListNameColor: brandingGreen
-        GridScreenDescriptionTitleColor: brandingGreen
-        GridScreenLogoHD: "pkg://images/channel_logo.png"
-        GridScreenLogoSD: "pkg://images/channel_logo.png"
-        GridScreenOverhangHeightHD: "138"
-        GridScreenOverhangHeightSD: "138"
-        GridScreenOverhangSliceHD: "pkg:/images/Overhang_Slice_HD.png"
-        GridScreenOverhangSliceSD: "pkg:/images/Overhang_Slice_HD.png"
-        GridScreenLogoOffsetHD_X: "25"
-        GridScreenLogoOffsetHD_Y: "15"
-        GridScreenLogoOffsetSD_X: "25"
-        GridScreenLogoOffsetSD_Y: "15"
-    }
-    app.SetTheme( theme )
-End Function
-
-Function CreateMenu() as integer
-    screen = CreateObject("roPosterScreen")
-    port = CreateObject("roMessagePort")
-    screen.SetMessagePort(port)
-    
-
-    screen.SetContentList(GetMovieOptions())
-    screen.SetFocusedListItem(1)
-    screen.show()
-    
-    while (true)
-        msg = wait(0, port)
-        if type(msg) = "roPosterScreenEvent"
-            if (msg.isScreenClosed())
-                return -1
-            else if (msg.isListItemSelected())
-                ShowMovieItemDetails( msg.GetIndex() )
-            endif
-        endif
-        
-    end while
-End Function
-
-Function GetMovieOptions() as object
-    m.options = [
-        {
-            ShortDescriptionLine1: "True Grit"
-            Price: "$0.99"
-            Rating: "350"
-            SDPosterURL: "pkg://images/movies/01_large.png"
-            HDPosterURL: "pkg://images/movies/01_large.png"
-        }
-        {
-            ShortDescriptionLine1: "The Borne Identity"
-            Price: "$0.99"
-            Rating: "350"
-            SDPosterURL: "pkg://images/movies/01_large.png"
-            HDPosterURL: "pkg://images/movies/01_large.png"
-        }
-        {
-            ShortDescriptionLine1: "A Classic"
-            Price: "$0.99"
-            Rating: "350"
-            SDPosterURL: "pkg://images/movies/01_large.png"
-            HDPosterURL: "pkg://images/movies/01_large.png"
-        }
-    ]
-    return m.options
-End Function
-
-Function ShowMovieItemDetails(index as integer) as integer
-    print "Selected Index: " + Stri(index)
-    detailsScreen = CreateObject("roSpringboardScreen")
-    port = CreateObject("roMessagePort")
-    detailsScreen.SetMessagePort(port)
-    detailsScreen.SetDescriptionStyle("generic")
-    detailsScreen.SetStaticRatingEnabled(false)
-    
-    details = {
-        HDPosterUrl: m.options[index].HDPosterURL
-        SDPosterUrl: m.options[index].SDPosterURL
-        Description: m.options[index].ShortDescriptionLine1
-        LabelAttrs: ["Price:", "Rating:"]
-        LabelVals: [m.options[index].Price, m.options[index].Rating]
-    }
-    detailsScreen.SetContent(details)
-    detailsScreen.AddButton(1, "Place Order")
-    detailsScreen.AddButton(2, "Report Movie to System")
-    detailsScreen.show()
-    
-    while (true)
-        msg = wait(0, port)
-        if type(msg) = "roSpringboardScreenEvent"
-            if (msg.isScreenClosed())
-                return -1
-            else if (msg.isButtonPressed())
-                DetailsScreenButtonClicked( msg.GetIndex() )
-            endif
-        endif
-    end while
-End Function
-
-Function DetailsScreenButtonClicked(index as integer) as void
-    dialog = CreateObject("roOneLineDialog")
-    if (index = 1)
-        dialog.SetTitle("Placing Order")
-    else if (index = 2)
-        dialog.SetTitle("Reporting Movie to System")
-    endif
-    dialog.ShowBusyAnimation()
-    dialog.show()
-    
-    Sleep(4000)
-End Function
-
-
+' This function creates the inital options, recent, browse and search
 Function InitContentList() as object
     contentList = [
         {
@@ -196,4 +56,51 @@ Function InitContentList() as object
         }
     ]
     return contentList
+End Function
+
+
+' This function defines the look/feel of the main screen
+Function InitTheme() as void
+    app = CreateObject("roAppManager")
+    
+    listItemHighlight           = "'FFFFFF"
+    listItemText                = "'707070"
+    brandingGreen               = "'37491D"
+    backgroundColor             = "'e0e0e0"
+    theme = {
+        BackgroundColor: backgroundColor
+        OverhangSliceHD: "pkg:/images/Overhang_Slice_HD.png"
+        OverhangSliceSD: "pkg:/images/Overhang_Slice_HD.png"
+        OverhangLogoHD: "pkg:/images/channel_logo.png"
+        OverhangLogoSD: "pkg:/images/channel_logo.png"
+        OverhangOffsetSD_X: "25"
+        OverhangOffsetSD_Y: "15"
+        OverhangOffsetHD_X: "25"
+        OverhangOffsetHD_Y: "15"
+        BreadcrumbTextLeft: brandingGreen
+        BreadcrumbTextRight: "'E1DFE0"
+        BreadcrumbDelimiter: brandingGreen
+        
+        ListItemText: listItemText
+        ListItemHighlightText: listItemHighlight
+        ListScreenDescriptionText: listItemText
+        ListItemHighlightHD: "pkg:/images/select_bkgnd.png"
+        ListItemHighlightSD: "pkg:/images/select_bkgnd.png"
+        CounterTextLeft: brandingGreen
+        CounterSeparator: brandingGreen
+        GridScreenBackgroundColor: backgroundColor
+        GridScreenListNameColor: brandingGreen
+        GridScreenDescriptionTitleColor: brandingGreen
+        GridScreenLogoHD: "pkg://images/channel_logo.png"
+        GridScreenLogoSD: "pkg://images/channel_logo.png"
+        GridScreenOverhangHeightHD: "138"
+        GridScreenOverhangHeightSD: "138"
+        GridScreenOverhangSliceHD: "pkg:/images/Overhang_Slice_HD.png"
+        GridScreenOverhangSliceSD: "pkg:/images/Overhang_Slice_HD.png"
+        GridScreenLogoOffsetHD_X: "25"
+        GridScreenLogoOffsetHD_Y: "15"
+        GridScreenLogoOffsetSD_X: "25"
+        GridScreenLogoOffsetSD_Y: "15"
+    }
+    app.SetTheme( theme )
 End Function
