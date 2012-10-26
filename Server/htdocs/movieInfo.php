@@ -1,4 +1,4 @@
-<?php
+<?
 $api_key = 'b114f3948e012226d6752817379338a7';
 
 // If the request was not issued by AJAX, or
@@ -15,7 +15,7 @@ $tmdb = new TMDb($api_key);
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
 
-$json = json_decode($tmdb->searchMovie("Iron Man"));
+$json = json_decode($tmdb->searchMovie($_GET['term']));
 
 $response = array();
 
