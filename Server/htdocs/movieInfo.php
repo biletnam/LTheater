@@ -7,21 +7,20 @@ $api_key = 'b114f3948e012226d6752817379338a7';
 #if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
 #    exit;
 #}
-print "3";
 include 'TMDb.php';
 
-print "4";
 $tmdb = new TMDb($api_key);
 
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
-print "1";
+echo $tmdb->searchMovie($_GET['term']);
+
 $json = json_decode($tmdb->searchMovie($_GET['term']));
 
 $response = array();
 
 $i=0;
-print"2";
+
 foreach($json as $movie){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
@@ -38,6 +37,5 @@ foreach($json as $movie){
 }
 
 // Presenting the response as a JSON object:
-echo "wee";
 echo json_encode($response);
 ?>
