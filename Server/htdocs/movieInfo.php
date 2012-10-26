@@ -10,6 +10,7 @@ $api = 'b114f3948e012226d6752817379338a7';
 $response = array();
 
 $i=0;
+$get = str_replace(" ","_",$_GET['term']);
 $query = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'];
 $session = curl_init($query);
 curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
