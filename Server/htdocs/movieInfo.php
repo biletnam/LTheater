@@ -4,10 +4,9 @@ $api_key = 'b114f3948e012226d6752817379338a7';
 // If the request was not issued by AJAX, or
 // the search term is missing, exit:
 
-if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
-    echo "error";
-	exit;
-}
+#if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
+#    exit;
+#}
 print "3";
 include 'TMDb.php';
 
