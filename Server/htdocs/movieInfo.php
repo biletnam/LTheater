@@ -21,7 +21,7 @@ if ($json_obj === NULL) die('Error parsing json');
 $movies = $json_obj->id;
 foreach($json_obj->{'results'}  as $movie){
 	$response[$i]['value'] = $movie->{'title'};
-	$response[$i]['label'] = $movie->{'title'}. ' <small>(' . date('Y',strtotime($movie->{'release_date'}).')</small>';
+	$response[$i]['label'] = $movie->{'title'}. ' <small>(' . date('Y',strtotime($movie->{'release_date'})).')</small>';
 	$i++;
 }
 
