@@ -30,7 +30,7 @@ $data = curl_exec($session);
 curl_close($session);
 $json_obj = json_decode($data, TRUE);
 print $data;
-echo $json_obj;
+echo "/n/n/n" . $json_obj;
 echo var_dump($json_obj->{'results'});
 foreach($json_obj  as $movie => $val){
 
