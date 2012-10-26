@@ -7,9 +7,10 @@ $api_key = 'b114f3948e012226d6752817379338a7';
 if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
 	exit;
 }
-
+print "3";
 include 'TMDb.php';
 
+print "4";
 $tmdb = new TMDb($api_key);
 
 // Send a search API request to TMDb,
