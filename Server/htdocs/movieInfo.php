@@ -36,6 +36,6 @@ foreach($json as $movie){
 }
 
 // Presenting the response as a JSON object:
-
+echo "wee"
 echo json_encode($response);
 ?>
