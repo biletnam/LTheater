@@ -18,7 +18,7 @@ curl_close($session);
 $json_obj = json_decode($data);
 if ($json_obj === NULL) die('Error parsing json');
 $movies = $json_obj->id;
-echo var_dump($json_obj->{'results'}[0]->{'title'}['value']);
+echo var_dump($json_obj->{'results'}[0]->{'title'});
 
 echo "<br /><br/>";
 
