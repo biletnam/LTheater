@@ -22,7 +22,7 @@ $tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 
 $json =json_decode(curl_exec(curl_init("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'])));
 #$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
-
+echo $json
 $response = array();
 
 $i=0;
