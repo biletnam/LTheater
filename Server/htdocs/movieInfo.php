@@ -20,7 +20,7 @@ $tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
 
-$json =json_decode(file_get_contents(urlencode("http://api.themoviedb.org/3/search/movie?api_key=$api&query=star+wars")));
+$json =json_decode(file_get_contents("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=star+wars"));
 #$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
 
 echo $json;
