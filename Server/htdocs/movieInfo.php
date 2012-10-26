@@ -7,18 +7,6 @@
 #}
 $api = 'b114f3948e012226d6752817379338a7';
 
-// Default English language
-$tmdb = new TMDb('b114f3948e012226d6752817379338a7');
-
-// Set-up the class with your own language
-$tmdb_nl = new TMDb('API-key', 'nl');
-
-// If you want to load the TMDb-config (default FALSE)
-$tmdb_load_config = new TMDb('API-key', 'en', TRUE);
-
-// Send a search API request to TMDb,
-// and parse the returned JSON data:
-
 $response = array();
 
 $i=0;
