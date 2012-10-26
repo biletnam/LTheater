@@ -20,15 +20,11 @@ $tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
 
-$json = curl_exec(curl_init("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term']));
-
-#$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
-echo $json;
 $response = array();
 
 $i=0;
 
-foreach(json_decode($json, TRUE)  as $movie => $val){
+foreach(json_decode(url_exec(curl_init("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'])), TRUE)  as $movie => $val){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
 
@@ -38,7 +34,7 @@ foreach(json_decode($json, TRUE)  as $movie => $val){
 	// The jQuery autocomplete widget shows the label in the drop down,
 	// and adds the value property to the text box.
 
-        echo $movie;
+        echo $movie->id;
 	$response[$i]['value'] = $movie->name;
 	$response[$i]['label'] = $movie->name . ' <small>(' . date('Y',strtotime($movie->released)).')</small>';
 	$i++;
