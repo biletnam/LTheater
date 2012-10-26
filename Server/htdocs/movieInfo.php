@@ -32,7 +32,7 @@ foreach($json_obj->{'results'}  as $movie){
 	// The jQuery autocomplete widget shows the label in the drop down,
 	// and adds the value property to the text box.
 
-        echo $movie->id;
+        echo $movie->{'title'} . "<br />";
 	$response[$i]['value'] = $movie->name;
 	$response[$i]['label'] = $movie->name . ' <small>(' . date('Y',strtotime($movie->released)).')</small>';
 	$i++;
