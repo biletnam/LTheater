@@ -5,6 +5,7 @@
 #if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
 #    exit;
 #}
+$api = 'b114f3948e012226d6752817379338a7';
 include 'TMDb.php';
 
 // Default English language
@@ -19,7 +20,8 @@ $tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
 
-$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
+$json =json_decode(http_get("http://api.themoviedb.org/3/search/movie?api_key=" + $api + "&query=star+wars" ))
+#$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
 
 echo $json;
 $response = array();
