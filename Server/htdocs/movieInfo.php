@@ -21,13 +21,18 @@ $tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 // and parse the returned JSON data:
 
 $json =json_decode(curl_exec(curl_init("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'])));
+
+$jsonlist = new RecursiveIteratorIterator(
+    new RecursiveArrayIterator($json),
+    RecursiveIteratorIterator::SELF_FIRST);
+
 #$json = json_decode($tmdb_yaml->searchMovie($_GET['term']));
 echo $json;
 $response = array();
 
 $i=0;
 
-foreach($json as $movie => $val){
+foreach($jsonlist as $movie => $val){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
 
