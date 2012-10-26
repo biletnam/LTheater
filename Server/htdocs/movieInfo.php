@@ -14,12 +14,13 @@ $tmdb = new TMDb($api_key);
 
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
-
+print "1";
 $json = json_decode($tmdb->searchMovie($_GET['term']));
 
 $response = array();
 
 $i=0;
+print"2";
 foreach($json as $movie){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
