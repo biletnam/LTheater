@@ -19,7 +19,7 @@ $json_obj = json_decode($data, TRUE);
 if ($json_obj === NULL) die('Error parsing json');
 $movies = $json_obj->id;
 print $data;
-echo "<br /><br />" . $json_obj . "<br /><br />";
+echo "<br /><br />" . $json_obj[0] . "<br /><br />";
 echo var_dump($json_obj->{'results'});
 foreach($data  as $movie => $val){
 
