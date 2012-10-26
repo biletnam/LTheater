@@ -1,3 +1,4 @@
+<?php
 $api_key = 'b114f3948e012226d6752817379338a7';
 
 // If the request was not issued by AJAX, or
@@ -37,3 +38,4 @@ foreach($json as $movie){
 // Presenting the response as a JSON object:
 
 echo json_encode($response);
+?>
