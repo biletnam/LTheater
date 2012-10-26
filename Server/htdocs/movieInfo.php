@@ -2,9 +2,9 @@
 // If the request was not issued by AJAX, or
 // the search term is missing, exit:
 
-#if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
-#    exit;
-#}
+if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
+    exit;
+}
 $api = 'b114f3948e012226d6752817379338a7';
 
 $response = array();
@@ -21,7 +21,7 @@ if ($json_obj === NULL) die('Error parsing json');
 $movies = $json_obj->id;
 foreach($json_obj->{'results'}  as $movie){
 	$response[$i]['value'] = $movie->{'title'};
-	$response[$i]['label'] = $movie->{'title'}. ' <small>(' . date('Y',strtotime($movie->{'release_date'})).')</small>';
+	$response[$i]['label'] = $movie->{'title'}. ' <small>(' . date('Y',strtotime($movie->{'release_date'})http://ocdsf.com/add_movie.html#).')</small>';
 	$i++;
 }
 
