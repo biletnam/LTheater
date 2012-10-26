@@ -21,7 +21,6 @@ $movies = $json_obj->id;
 echo var_dump($json_obj->{'results'}[0]);
 
 echo "<br /><br/>";
-echo 
 
 foreach($json_obj->{'results'}  as $movie){
 
