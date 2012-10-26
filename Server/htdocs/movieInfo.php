@@ -23,15 +23,6 @@ echo $json_obj->{'results'}[0]->{'title'};
 echo "<br /><br/>";
 
 foreach($json_obj->{'results'}  as $movie){
-
-	// Only movies existing in the IMDB catalog (and are not adult) are shown
-
-	if(!$movie->imdb_id || $movie->adult) continue;
-	if($i >= 8 ) break;
-
-	// The jQuery autocomplete widget shows the label in the drop down,
-	// and adds the value property to the text box.
-
         echo $movie->{'title'} . "<br />";
 	$response[$i]['value'] = $movie->name;
 	$response[$i]['label'] = $movie->name . ' <small>(' . date('Y',strtotime($movie->released)).')</small>';
