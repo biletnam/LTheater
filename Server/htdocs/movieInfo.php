@@ -3,7 +3,7 @@
  *	http://www.themoviedb.org/account/signup
  */
 
-$api_key = '...';
+$api_key = 'c2c73ebd1e25cbc29cf61158c04ad78a';
 
 // If the request was not issued by AJAX, or
 // the search term is missing, exit:
