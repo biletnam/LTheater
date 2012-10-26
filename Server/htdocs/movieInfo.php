@@ -24,7 +24,7 @@ $response = array();
 
 $i=0;
 $json_obj = json_decode(curl_exec(curl_init("http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'])), TRUE);
-var_dump($json_obj->{'results'});
+#var_dump($json_obj->{'results'});
 foreach($json_obj  as $movie => $val){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
