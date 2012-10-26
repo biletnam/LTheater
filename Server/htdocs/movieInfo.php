@@ -13,9 +13,9 @@ $tmdb = new TMDb($api_key);
 
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
-echo join(" ", $tmdb->searchMovie($_GET['term']));
 
-$json = json_decode($tmdb->searchMovie($_GET['term']));
+#$json = json_decode($tmdb->searchMovie($_GET['term']));
+$json = $tmdb->searchMovie($_GET['term']);
 
 $response = array();
 
