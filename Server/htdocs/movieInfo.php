@@ -1,6 +1,4 @@
 <?
-$api_key = 'b114f3948e012226d6752817379338a7';
-
 // If the request was not issued by AJAX, or
 // the search term is missing, exit:
 
@@ -9,14 +7,21 @@ $api_key = 'b114f3948e012226d6752817379338a7';
 #}
 include 'TMDb.php';
 
-$tmdb = new TMDb($api_key);
+// Default English language
+$tmdb = new TMDb('b114f3948e012226d6752817379338a7');
+
+// Set-up the class with your own language
+$tmdb_nl = new TMDb('API-key', 'nl');
+
+// If you want to load the TMDb-config (default FALSE)
+$tmdb_load_config = new TMDb('API-key', 'en', TRUE);
 
 // Send a search API request to TMDb,
 // and parse the returned JSON data:
 
 #$json = json_decode($tmdb->searchMovie($_GET['term']));
 $json = $tmdb->searchMovie($_GET['term']);
-
+echo $json;
 $response = array();
 
 $i=0;
