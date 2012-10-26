@@ -32,7 +32,7 @@ $json_obj = json_decode($data, TRUE);
 print $data;
 echo "<br /><br />" . $json_obj . "<br /><br />";
 echo var_dump($json_obj->{'results'});
-foreach($json_obj  as $movie => $val){
+foreach($data  as $movie => $val){
 
 	// Only movies existing in the IMDB catalog (and are not adult) are shown
 
