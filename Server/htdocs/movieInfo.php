@@ -24,7 +24,7 @@ $response = array();
 
 $i=0;
 $http = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'];
-$json = http_get($http);
+$json = file_get_contents($http);
 $json_obj = json_decode($json, TRUE);
 #var_dump($json_obj->{'results'});
 foreach($json_obj  as $movie => $val){
