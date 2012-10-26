@@ -11,7 +11,7 @@ $response = array();
 
 $i=0;
 $get = str_replace(" ","_",$_GET['term']);
-$query = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'];
+$query = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $get;
 $session = curl_init($query);
 curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
 $data = curl_exec($session);
