@@ -24,7 +24,11 @@ $response = array();
 
 $i=0;
 $query = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'];
-$json_obj = json_decode($query, TRUE);
+$session = curl_init($query);
+curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+$data = curl_exec($session);
+curl_close($session);
+$json_obj = json_decode($data, TRUE);
 echo $json_obj;
 echo var_dump($json_obj->{'results'});
 foreach($json_obj  as $movie => $val){
