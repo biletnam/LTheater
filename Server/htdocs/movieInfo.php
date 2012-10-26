@@ -6,7 +6,6 @@
 #    exit;
 #}
 $api = 'b114f3948e012226d6752817379338a7';
-include 'TMDb.php';
 
 // Default English language
 $tmdb = new TMDb('b114f3948e012226d6752817379338a7');
