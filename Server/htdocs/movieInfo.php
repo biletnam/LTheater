@@ -18,14 +18,9 @@ curl_close($session);
 $json_obj = json_decode($data);
 if ($json_obj === NULL) die('Error parsing json');
 $movies = $json_obj->id;
-echo $json_obj->{'results'}[0]->{'title'};
-
-echo "<br /><br/>";
-
 foreach($json_obj->{'results'}  as $movie){
-        echo $movie->{'title'} . "<br />";
-	$response[$i]['value'] = $movie->name;
-	$response[$i]['label'] = $movie->name . ' <small>(' . date('Y',strtotime($movie->released)).')</small>';
+	$response[$i]['value'] = $movie->{'id'}
+	$response[$i]['label'] = $movie->{'title'}. ' <small>(' . date('Y',strtotime($movie->released)).')</small>';
 	$i++;
 }
 
