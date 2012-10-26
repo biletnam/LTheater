@@ -33,6 +33,13 @@ body{
 }
 
 /* The Search Box & Holder */
+#poster{
+	width:185px;
+	height:278px;
+	background:url('img/holder.png') no-repeat center center;
+	margin:30px auto;
+	position:relative;
+}
 
 
 #holder{
