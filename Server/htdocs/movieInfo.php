@@ -5,6 +5,7 @@ $api_key = 'b114f3948e012226d6752817379338a7';
 // the search term is missing, exit:
 
 if(!$_SERVER["HTTP_X_REQUESTED_WITH"] || !$_GET['term']){
+    echo "error";
 	exit;
 }
 print "3";
