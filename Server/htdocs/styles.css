@@ -32,23 +32,6 @@ body{
 	margin:0 auto;
 }
 
-#icon{
-	width:80px;
-	height:86px;
-	background:url('img/icon.png') no-repeat;
-	float:left;
-}
-
-#movieAppLabel{
-	width:268px;
-	height:58px;
-	background:url('img/logo_txt.png') no-repeat;
-	position:absolute;
-	right:0;
-	top:18px;
-}
-
-
 /* The Search Box & Holder */
 
 
