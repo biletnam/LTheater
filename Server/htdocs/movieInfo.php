@@ -1,5 +1,4 @@
 <?
-ini_set("allow_url_fopen", "on");
 // If the request was not issued by AJAX, or
 // the search term is missing, exit:
 
@@ -25,9 +24,7 @@ $response = array();
 
 $i=0;
 $query = "http://api.themoviedb.org/3/search/movie?api_key=" . $api . "&query=" . $_GET['term'];
-$json = file_get_contents($query);
-echo $json;
-$json_obj = json_decode($json, TRUE, 2);
+$json_obj = json_decode($query, TRUE);
 echo $json_obj;
 echo var_dump($json_obj->{'results'});
 foreach($json_obj  as $movie => $val){
