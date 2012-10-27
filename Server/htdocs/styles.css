@@ -36,7 +36,8 @@ body{
 #poster{
 	width:185px;
 	height:278px;
-	background:url('img/holder.png') center center;
+	background-color:#b0c4de;
+	margin:30px auto;
 	position:relative;
 }
 
