@@ -9,7 +9,9 @@
 <body>
 <div id="page">
     <div id="holder">
-        <a href=/add_movie.html>Upload a new movie</a>
+        <fieldset>
+            <a href=/add_movie.html>Upload a new movie</a>
+        </fieldset>
     </div>
     
 </div>
