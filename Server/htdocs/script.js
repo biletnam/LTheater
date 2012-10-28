@@ -17,10 +17,8 @@ $(document).ready(function(){
 	$('#holder .button').click(function(){
 		if(movieName.val().length && movieName.data('defaultText') != movieName.val()){
 			$('#holder form').submit();
+			$('#poster').attr('src', 'http://cf2.imgobject.com/t/p/w185' + $('#attribute119 :selected').text());
 		}
-	});
-	$('#holder form').change(function () {
-		$('#poster').attr('src', 'http://cf2.imgobject.com/t/p/w185' + $('#attribute119 :selected').text());
 	});
 });
 
