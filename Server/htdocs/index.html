@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LTheater Movie Uploader</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.uploadProgress.js"></script>
+<script type="text/javascript" charset="utf-8">
+//<![CDATA[
+$(document).ready(function() { 
+    $(function() {
+        $('#upload_form').uploadProgress({
+            jqueryPath: "{{MEDIA_URL}}js/jquery.js",
+            progressBar: '#progress_indicator',
+            progressUrl: '{% url upload_progress %}',
+            start: function() {
+                $("#upload_form").hide();
+                filename = $("#id_file").val().split(/[\/\\]/).pop();
+                $("#progress_filename").html('Uploading ' + filename + "...");
+                $("#progress_container").show();
+            },
+            uploadProgressPath: "{{MEDIA_URL}}js/jquery.uploadProgress.js",
+            uploading: function(upload) {
+                if (upload.percents == 100) {
+                    window.clearTimeout(this.timer);
+                    $("#progress_filename").html('Processing ' + filename + "...");
+                } else {
+                    $("#progress_filename").html('Uploading ' + filename + ': ' + upload.percents + '%');
+                }
+            },
+            interval: 1000
+        });
+    });
+});
+//]]>
+</script>
+</head>
+<body>
+<div id="progress_container">
+    <div id="progress_filename"></div>
+    <div id="progress_bar">
+        <div id="progress_indicator"></div>
+    </div>
+</div>
+</body>
