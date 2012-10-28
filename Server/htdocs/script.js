@@ -19,6 +19,9 @@ $(document).ready(function(){
 			$('#holder form').submit();
 		}
 	});
+	$('#holder form').change(function () {
+		$('#poster').attr('src', 'http://cf2.imgobject.com/t/p/w185' + $('#attribute119 :selected').text());
+	});
 });
 
 // A custom jQuery method for placeholder text:
