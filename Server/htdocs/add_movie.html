@@ -6,9 +6,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script src="/scripts/script.js"></script>
-<script src="/scripts/jquery-1.2.6.min.js"></script>
-<script src="/scripts/swfupload.js"></script>
-<script src="/scripts/jquery-asyncUpload-0.1.js"></script>
 <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 
@@ -27,14 +24,5 @@
     </div>
     
 </div>
-<script>
-    $(function() {
-        $("#yourID").makeAsyncUploader({
-            upload_url: "/Home/AsyncUpload", // Important! This isn't a directory, it's a HANDLER such as an ASP.NET MVC action method, or a PHP file, or a Classic ASP file, or an ASP.NET .ASHX handler. The handler should save the file to disk (or database).
-            flash_url: '/Scripts/swfupload.swf',
-            button_image_url: '/Scripts/blankButton.png'
-        });
-    });
-</script>
 </body>
 </html>
