@@ -10,7 +10,7 @@ $(document).ready(function(){
 	// Using jQuery UI's autocomplete widget:
 	movieName.autocomplete({
 		minLength	: 5,
-		source		: 'movieInfo.php'
+		source		: '/scripts/movieInfo.php'
 	});
 
 

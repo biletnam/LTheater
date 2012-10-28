@@ -13,23 +13,14 @@ body{
 	background-color:#57575d;
 
 	/* Multiple backgrounds */
-	background:url('img/bg_vert.jpg') repeat-x,url('img/bg_tile.jpg');
+	background:url('/img/bg_vert.jpg') repeat-x,url('img/bg_tile.jpg');
 }
 
 #page{
-	width:600px;
-	margin:180px auto 0;
-}
-
-
-/* Logo */
-
-
-#logo{
-	width:380px;
-	position:relative;
-	height:90px;
-	margin:0 auto;
+	text-align: center;
+	margin:80px auto 0;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 /* The Search Box & Holder */
@@ -41,45 +32,73 @@ body{
 	position:relative;
 }
 
-
-#holder{
+#uploader{
+	float: left;
 	width:530px;
-	height:145px;
-	background:url('img/holder.png') no-repeat center center;
+	height:345px;
+	background:url('/img/uploader.png') no-repeat center center;
 	margin:30px auto;
 	position:relative;
 }
 
-#holder fieldset{
+#uploader fieldset{
 	position:absolute;
 	top:28px;
-	left:40px;
-	border-bottom:1px solid #fff;
+	left:20px;
 }
 
-#holder input{
+#uploadtitle input{
 	font-family:'Myriad Pro',Arial,Helvetica,sans-serif;
-	border:none;
+	border:hidden;
 	border-bottom:1px solid #bbb;
 	background:none;
 	color:#8D8D8D;
 	font-size:20px;
 	padding:4px 0;
-	width:250px;
+	width:320px;
 	text-shadow:1px 1px #fff;
-	outline:none;
+	outline:hidden;
+}
+
+#uploadfile input{
+	float:left;
+}
+
+#uploadfile input{
+	font-family:'Myriad Pro',Arial,Helvetica,sans-serif;
+	border:hidden;
+	background:none;
+	color:#8D8D8D;
+	font-size:20px;
+	padding:4px 0;
+	width:220px;
+	text-shadow:1px 1px #fff;
+	outline:hidden;
+}
+
+#uploadprogress {
+	float: left;
+	width: 200px;
 }
 
 fieldset{
 	border:none;
 }
 
+#bittorrenter{
+	float: right;
+	width:530px;
+	height:145px;
+	background:url('/img/holder.png') no-repeat center center;
+	margin:30px auto;
+	position:relative;
+}
 
 /* The Blue Button */
 
 
 a.button{
-	background:url('img/buttons.png') no-repeat;
+	background:url('/img/buttons.png') no-repeat;
 	width:105px;
 	height:37px;
 	position:absolute;
@@ -132,31 +151,4 @@ ul.ui-autocomplete li a{
 	background-color:#fff;
 	color:#666;
 	cursor:pointer;
-}
-
-DIV.ProgressBar { width: 100px; padding: 0; border: 1px solid black; margin-right: 1em; height:.75em; margin-left:1em; display:-moz-inline-stack; display:inline-block; zoom:1; *display:inline; }
-DIV.ProgressBar DIV { background-color: Green; font-size: 1pt; height:100%; float:left; }
-SPAN.asyncUploader OBJECT { position: relative; top: 5px; left: 10px; }
-
-/* Only Needed For The Demo Page */
-
-
-h1{
-	font-size:15px;
-	font-weight:normal;
-	font-family:Corbel,'Myriad Pro',Arial, Helvetica, sans-serif;
-	margin-top:50px;
-	text-align:center;
-	text-shadow:none;
-}
-
-a, a:visited {
-	text-decoration:none;
-	outline:none;
-	border-bottom:1px dotted #97cae6;
-	color:#97cae6;
-}
-
-a:hover{
-	border-bottom:1px dashed transparent;
 }
